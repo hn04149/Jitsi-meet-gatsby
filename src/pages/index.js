@@ -4,12 +4,26 @@ import Jitsi from "./jitsi-gatsby"
 
 const IndexPage = () => {
   React.useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://meet.jit.si/external_api.js"
-    script.async = true
-    document.body.appendChild(script)
+    const script1 = document.createElement("script")
+    script1.src = "https://meet.jit.si/external_api.js"
+    script1.async = true
+
+    const script2 = document.createElement("script")
+    script2.src = "https://code.jquery.com/jquery-3.5.1.min.js"
+    script2.async = true
+
+    const script3 = document.createElement("script")
+    script3.src = "https://meet.jit.si/libs/lib-jitsi-meet.min.js"
+    script3.async = true
+
+    document.body.appendChild(script1)
+    document.body.appendChild(script2)
+    document.body.appendChild(script3)
+
     return () => {
-      document.body.removeChild(script)
+      document.body.removeChild(script1)
+      document.body.removeChild(script2)
+      document.body.removeChild(script3)
     }
   }, [])
 
